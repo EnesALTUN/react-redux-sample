@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import {
   increment,
   decrement,
   reset,
   incrementByAmount,
-} from "../features/counter/counterSlice";
+} from "../../features/counter/counterSlice";
 
 const Counter = () => {
   const count = useSelector((state) => state.counter.count);
@@ -20,38 +21,46 @@ const Counter = () => {
   };
 
   return (
-    <div className="counter">
-      <p>Count: {count}</p>
-      <div>
-        <button
+    <Box className="counter">
+      <Typography>Count: {count}</Typography>
+      <Box>
+        <Button
+          variant="contained"
           onClick={() => {
             dispatch(increment());
           }}
         >
           +
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="contained"
           onClick={() => {
             dispatch(decrement());
           }}
         >
           -
-        </button>
-      </div>
+        </Button>
+      </Box>
 
-      <input
+      <TextField
         type="text"
+        label="Increment Amount"
         value={incrementAmount}
         onChange={(e) => setIncrementAmount(e.target.value)}
       />
 
-      <div>
-        <button onClick={() => dispatch(incrementByAmount(addValueHandler))}>
+      <Box>
+        <Button
+          variant="contained"
+          onClick={() => dispatch(incrementByAmount(addValueHandler))}
+        >
           Add Amount
-        </button>
-        <button onClick={resetHandler}>Reset</button>
-      </div>
-    </div>
+        </Button>
+        <Button variant="contained" onClick={resetHandler} color="error">
+          Reset
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

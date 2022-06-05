@@ -1,15 +1,19 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { Box } from "@mui/material";
 
-import Counter from "./pages/Counter";
+import { Counter } from "./pages/index";
+import { Layout } from "./components/index";
 
 const App = () => {
   return (
-    <div className="app">
+    <Box className="app">
       <Routes>
-        <Route path="/counter" element={<Counter />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/counter" element={<Counter />} />
+        </Route>
       </Routes>
-    </div>
+    </Box>
   );
 };
 
