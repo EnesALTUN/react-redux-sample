@@ -1,7 +1,4 @@
 .app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
@@ -13,5 +10,10 @@
   gap: 1rem;
 }
 .counter p {
+  margin-top: 10px;
   font-size: 1.5rem;
+}
+
+.counter button {
+  margin: 5px;
 }
