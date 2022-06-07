@@ -1,5 +1,5 @@
 import { Layout } from "../components";
-import { Counter } from "../pages";
+import { Counter, PostList } from "../pages";
 
 const routes = [
   {
@@ -10,6 +10,11 @@ const routes = [
       {
         path: "/counter",
         element: Counter,
+        exact: false,
+      },
+      {
+        path: "/posts",
+        element: PostList,
         exact: false,
       },
     ],

@@ -1,3 +1,5 @@
 import Counter from "../pages/counter/Counter";
 
-export { Counter };
+import PostList from "../pages/post/PostList";
+
+export { Counter, PostList };

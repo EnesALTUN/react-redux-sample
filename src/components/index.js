@@ -3,4 +3,6 @@ import Header from "./header/Header";
 import NavMenu from "./navMenu/NavMenu";
 import MobilMenu from "./navMenu/MobilMenu";
 
-export { Layout, Header, NavMenu, MobilMenu };
+import { MuiTable } from "./tables/MuiTable";
+
+export { Layout, Header, NavMenu, MobilMenu, MuiTable };
