@@ -2,16 +2,29 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import { Counter } from "./pages/index";
-import { Layout } from "./components/index";
+import routes from "./routes/routes";
 
 const App = () => {
   return (
     <Box className="app">
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/counter" element={<Counter />} />
-        </Route>
+        {routes.map((route, routeIndex) => (
+          <Route
+            key={routeIndex}
+            path={route.path}
+            element={<route.element />}
+            exact={route.exact}
+          >
+            {route.childrens?.map((children, childrenIndex) => (
+              <Route
+                key={childrenIndex}
+                path={children.path}
+                element={<children.element />}
+                exact={children.exact}
+              />
+            ))}
+          </Route>
+        ))}
       </Routes>
     </Box>
   );
