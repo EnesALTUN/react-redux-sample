@@ -56,6 +56,14 @@ const NavMenu = () => {
                 Counter
               </Button>
             </Link>
+            <Link href="/posts">
+              <Button
+                onClick={closeNavMenuHandler}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Posts
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </Container>
