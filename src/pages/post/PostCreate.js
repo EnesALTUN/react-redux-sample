@@ -6,6 +6,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { addPost } from "../../features/post/postSlice";
 import PostCreateForm from "./common/forms/PostCreateForm";
 import { postCreateInitials } from "./common/initials/PostCreateInitials";
+import { postCreateValidationSchema } from "./common/validations/PostCreateValidation";
 
 const PostCreate = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,11 @@ const PostCreate = () => {
         marginTop: "2rem",
       }}
     >
-      <Formik initialValues={postCreateInitials} onSubmit={submitHandler}>
+      <Formik
+        initialValues={postCreateInitials}
+        validationSchema={postCreateValidationSchema}
+        onSubmit={submitHandler}
+      >
         <PostCreateForm />
       </Formik>
     </Box>
