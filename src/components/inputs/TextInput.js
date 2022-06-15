@@ -14,6 +14,8 @@ const TextInput = (props) => {
       value={field.value ?? ""}
       fullWidth={fullWidth ?? true}
       onChange={(e) => formik.setFieldValue(name, e.target.value)}
+      error={!!meta.error}
+      helperText={meta.touched && meta.error}
     />
   );
 };
