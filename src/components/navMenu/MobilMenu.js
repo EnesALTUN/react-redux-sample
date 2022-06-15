@@ -59,6 +59,14 @@ const MobilMenu = (props) => {
               Posts
             </Link>
           </MenuItem>
+          <MenuItem onClick={closeNavMenuHandler}>
+            <Link
+              href="/post/create"
+              sx={{ color: "black", textDecoration: "none" }}
+            >
+              Post Create
+            </Link>
+          </MenuItem>
         </Menu>
       </Box>
       <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />

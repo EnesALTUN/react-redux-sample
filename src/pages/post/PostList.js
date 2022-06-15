@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { MuiTable } from "../../components/index";
+import { selectAllPosts } from "../../features/post/postSlice";
 import { sentenceSplit } from "../../utils";
 
 const PostList = () => {
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector(selectAllPosts);
 
   const customPosts = posts.map((post) => ({
     ...post,

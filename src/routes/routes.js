@@ -1,5 +1,5 @@
 import { Layout } from "../components";
-import { Counter, PostList } from "../pages";
+import { Counter, PostCreate, PostList } from "../pages";
 
 const routes = [
   {
@@ -15,6 +15,11 @@ const routes = [
       {
         path: "/posts",
         element: PostList,
+        exact: false,
+      },
+      {
+        path: "/post/create",
+        element: PostCreate,
         exact: false,
       },
     ],
