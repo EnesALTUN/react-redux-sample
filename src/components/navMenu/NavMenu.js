@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MobilMenu } from "../index";
+import { Link } from "react-router-dom";
 import { Adb as AdbIcon } from "@mui/icons-material";
 import {
   AppBar,
@@ -8,7 +9,6 @@ import {
   Typography,
   Container,
   Button,
-  Link,
 } from "@mui/material";
 
 const NavMenu = () => {
@@ -23,23 +23,23 @@ const NavMenu = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
+          <Link to="/" className="menu-link">
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              LOGO
+            </Typography>
+          </Link>
 
           <MobilMenu
             anchorElNav={anchorElNav}
@@ -48,29 +48,14 @@ const NavMenu = () => {
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link href="/counter">
-              <Button
-                onClick={closeNavMenuHandler}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Counter
-              </Button>
+            <Link to="/counter" className="menu-link">
+              <Button onClick={closeNavMenuHandler}>Counter</Button>
             </Link>
-            <Link href="/posts">
-              <Button
-                onClick={closeNavMenuHandler}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Posts
-              </Button>
+            <Link to="/posts" className="menu-link">
+              <Button onClick={closeNavMenuHandler}>Posts</Button>
             </Link>
-            <Link href="/post/create">
-              <Button
-                onClick={closeNavMenuHandler}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Post Create
-              </Button>
+            <Link to="/post/create" className="menu-link">
+              <Button onClick={closeNavMenuHandler}>Post Create</Button>
             </Link>
           </Box>
         </Toolbar>
