@@ -25,3 +25,18 @@
   align-items: center;
   gap: 20px;
 }
+
+.menu-link {
+  text-decoration: none;
+  color: white;
+}
+
+.mobile.menu-link {
+  color: black;
+}
+
+.menu-link .MuiButtonBase-root {
+  margin: 1rem 0;
+  color: white;
+  display: block;
+}

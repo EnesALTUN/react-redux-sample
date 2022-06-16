@@ -1,12 +1,6 @@
+import { Link } from "react-router-dom";
 import { Adb as AdbIcon, Menu as MenuIcon } from "@mui/icons-material";
-import {
-  Box,
-  Typography,
-  IconButton,
-  Menu,
-  MenuItem,
-  Link,
-} from "@mui/material";
+import { Box, Typography, IconButton, Menu, MenuItem } from "@mui/material";
 
 const MobilMenu = (props) => {
   const { anchorElNav, setAnchorElNav, closeNavMenuHandler } = props;
@@ -40,41 +34,34 @@ const MobilMenu = (props) => {
             vertical: "top",
             horizontal: "left",
           }}
-          open={Boolean(anchorElNav)}
+          open={!!anchorElNav}
           onClose={closeNavMenuHandler}
           sx={{
             display: { xs: "block", md: "none" },
           }}
         >
           <MenuItem onClick={closeNavMenuHandler}>
-            <Link
-              href="/counter"
-              sx={{ color: "black", textDecoration: "none" }}
-            >
+            <Link to="/counter" className="mobile menu-link">
               Counter
             </Link>
           </MenuItem>
           <MenuItem onClick={closeNavMenuHandler}>
-            <Link href="/posts" sx={{ color: "black", textDecoration: "none" }}>
+            <Link to="/posts" className="mobile menu-link">
               Posts
             </Link>
           </MenuItem>
           <MenuItem onClick={closeNavMenuHandler}>
-            <Link
-              href="/post/create"
-              sx={{ color: "black", textDecoration: "none" }}
-            >
+            <Link to="/post/create" className="mobile menu-link">
               Post Create
             </Link>
           </MenuItem>
         </Menu>
       </Box>
+
       <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
       <Typography
         variant="h5"
         noWrap
-        component="a"
-        href="/"
         sx={{
           mr: 2,
           display: { xs: "flex", md: "none" },
@@ -86,7 +73,9 @@ const MobilMenu = (props) => {
           textDecoration: "none",
         }}
       >
-        LOGO
+        <Link to="/" className="menu-link">
+          LOGO
+        </Link>
       </Typography>
     </>
   );
