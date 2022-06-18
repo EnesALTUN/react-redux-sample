@@ -1,9 +1,13 @@
 import React from "react";
 import { Form } from "formik";
+import { useSelector } from "react-redux";
+import { selectAllUsers } from "../../../../features/users/userSlice";
 import { Button, Divider, Grid, Typography } from "@mui/material";
-import TextInput from "../../../../components/inputs/TextInput";
+import { TextInput, AutoCompleteDropdown } from "../../../../components/index";
 
 const PostCreateForm = () => {
+  const users = useSelector(selectAllUsers);
+
   return (
     <Form>
       <Grid container>
@@ -16,6 +20,9 @@ const PostCreateForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextInput name="content" label="Content" />
+        </Grid>
+        <Grid item xs={12}>
+          <AutoCompleteDropdown name="userId" label="User" options={users} />
         </Grid>
         <Grid className="fullFlex" item xs={12}>
           <Button type="submit" variant="contained" color="primary">

@@ -4,7 +4,7 @@ import { useFormikContext, useField } from "formik";
 
 const TextInput = (props) => {
   const { name, label, fullWidth } = props;
-  const formik = useFormikContext();
+  const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);
 
   return (
@@ -13,9 +13,9 @@ const TextInput = (props) => {
       label={label}
       value={field.value ?? ""}
       fullWidth={fullWidth ?? true}
-      onChange={(e) => formik.setFieldValue(name, e.target.value)}
+      onChange={(e) => setFieldValue(name, e.target.value)}
       error={!!meta.error}
-      helperText={meta.touched && meta.error}
+      helperText={meta.error}
     />
   );
 };
