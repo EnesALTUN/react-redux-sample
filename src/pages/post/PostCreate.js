@@ -13,6 +13,7 @@ const PostCreate = () => {
 
   const submitHandler = (values) => {
     const customValues = { ...values, id: nanoid() };
+
     dispatch(addPost(customValues));
   };
 
