@@ -6,6 +6,7 @@ import MobilMenu from "./navMenu/MobilMenu";
 import { MuiTable } from "./tables/MuiTable";
 
 import TextInput from "./inputs/TextInput";
+import UserInput from "./inputs/UserInput";
 import AutoCompleteDropdown from "./inputs/AutoCompleteDropdown";
 
 export {
@@ -15,5 +16,6 @@ export {
   MobilMenu,
   MuiTable,
   TextInput,
+  UserInput,
   AutoCompleteDropdown,
 };
