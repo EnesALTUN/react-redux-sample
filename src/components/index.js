@@ -7,6 +7,7 @@ import { MuiTable } from "./tables/MuiTable";
 
 import TextInput from "./inputs/TextInput";
 import UserInput from "./inputs/UserInput";
+import TimeAgoField from "./fields/TimeAgoField";
 import AutoCompleteDropdown from "./inputs/AutoCompleteDropdown";
 
 export {
@@ -17,5 +18,6 @@ export {
   MuiTable,
   TextInput,
   UserInput,
+  TimeAgoField,
   AutoCompleteDropdown,
 };

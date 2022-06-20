@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { MuiTable, UserInput } from "../../components/index";
+import { TimeAgoField, MuiTable, UserInput } from "../../components/index";
 import { selectAllPosts } from "../../features/post/postSlice";
 import { sentenceSplit } from "../../utils";
 
@@ -12,12 +12,11 @@ const PostList = () => {
     content: sentenceSplit(post.content, 0, 100),
   }));
 
+  const orderedPosts = customPosts
+    .slice()
+    .sort((a, b) => b.createdDate.localeCompare(a.createdDate));
+
   const postColumns = [
-    {
-      field: "id",
-      headerName: "ID",
-      width: 220,
-    },
     {
       field: "title",
       headerName: "Title",
@@ -35,12 +34,18 @@ const PostList = () => {
       flex: 1,
       renderCell: ({ value }) => <UserInput userId={value} />,
     },
+    {
+      field: "createdDate",
+      headerName: "Created Date",
+      flex: 1,
+      renderCell: ({ value }) => <TimeAgoField value={value} />,
+    },
   ];
 
   return (
     <MuiTable
       columns={postColumns}
-      rows={customPosts}
+      rows={orderedPosts}
       styles={{ width: "90%", margin: "10px auto" }}
     />
   );
