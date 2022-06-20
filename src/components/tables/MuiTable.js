@@ -27,6 +27,7 @@ export const MuiTable = (props) => {
         autoHeight
         disableSelectionOnClick
         componentsProps={componentProps}
+        disableVirtualization={true}
       />
     </Box>
   );

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
-import { MuiTable } from "../../components/index";
+import { MuiTable, UserInput } from "../../components/index";
 import { selectAllPosts } from "../../features/post/postSlice";
 import { sentenceSplit } from "../../utils";
 
@@ -29,13 +29,19 @@ const PostList = () => {
       flex: 1,
       renderCell: ({ value }) => <Box>{value}</Box>,
     },
+    {
+      field: "authorId",
+      headerName: "Author",
+      flex: 1,
+      renderCell: ({ value }) => <UserInput userId={value} />,
+    },
   ];
 
   return (
     <MuiTable
       columns={postColumns}
       rows={customPosts}
-      styles={{ width: 800, margin: "10px auto" }}
+      styles={{ width: "90%", margin: "10px auto" }}
     />
   );
 };

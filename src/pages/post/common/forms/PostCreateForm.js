@@ -22,7 +22,11 @@ const PostCreateForm = () => {
           <TextInput name="content" label="Content" />
         </Grid>
         <Grid item xs={12}>
-          <AutoCompleteDropdown name="userId" label="User" options={users} />
+          <AutoCompleteDropdown
+            name="authorId"
+            label="Author"
+            options={users}
+          />
         </Grid>
         <Grid className="fullFlex" item xs={12}>
           <Button type="submit" variant="contained" color="primary">
