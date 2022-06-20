@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { MuiTable } from "../../components/index";
 import { selectAllPosts } from "../../features/post/postSlice";
@@ -15,14 +16,18 @@ const PostList = () => {
     {
       field: "id",
       headerName: "ID",
+      width: 220,
     },
     {
       field: "title",
       headerName: "Title",
+      flex: 1,
     },
     {
       field: "content",
       headerName: "Content",
+      flex: 1,
+      renderCell: ({ value }) => <Box>{value}</Box>,
     },
   ];
 

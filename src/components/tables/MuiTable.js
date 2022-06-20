@@ -1,40 +1,33 @@
-import React from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import React, { useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
 
 export const MuiTable = (props) => {
   const { columns, rows, styles } = props;
+  const [pageSize, setPageSize] = useState(10);
+
+  const componentProps = {
+    pagination: {
+      labelRowsPerPage: "Sayfa başına satır sayısı:",
+      labelDisplayedRows: ({ from, to, count }) =>
+        `${count} kayıttan ${from} - ${to}`,
+    },
+  };
 
   return (
-    <Table sx={{ ...styles, minWidth: 650 }} aria-label="simple table">
-      <TableHead>
-        <TableRow>
-          {columns.map((column, index) => (
-            <TableCell key={index}>{column.headerName}</TableCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {rows.map((row, rowIndex) => (
-          <TableRow key={rowIndex}>
-            {columns.map((column, colIndex) => (
-              <TableCell
-                key={colIndex}
-                component="th"
-                scope="row"
-                align={column.align ?? "left"}
-              >
-                {column.field === "index" ? rowIndex + 1 : row[column.field]}
-              </TableCell>
-            ))}
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <Box>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        sx={{ ...styles }}
+        pagination
+        pageSize={pageSize}
+        rowsPerPageOptions={[10, 20, 50, 100]}
+        onPageSizeChange={(size) => setPageSize(size)}
+        autoHeight
+        disableSelectionOnClick
+        componentsProps={componentProps}
+      />
+    </Box>
   );
 };
