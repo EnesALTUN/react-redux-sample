@@ -54,6 +54,9 @@ const NavMenu = () => {
             <Link to="/posts" className="menu-link">
               <Button onClick={closeNavMenuHandler}>Posts</Button>
             </Link>
+            <Link to="/posts-api" className="menu-link">
+              <Button onClick={closeNavMenuHandler}>Posts-Api</Button>
+            </Link>
             <Link to="/post/create" className="menu-link">
               <Button onClick={closeNavMenuHandler}>Post Create</Button>
             </Link>
