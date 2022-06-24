@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, trTR } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 
 export const MuiTable = (props) => {
-  const { columns, rows, styles } = props;
+  const { columns, rows, styles, isLoading } = props;
   const [pageSize, setPageSize] = useState(10);
 
   const componentProps = {
     pagination: {
-      labelRowsPerPage: "Sayfa başına satır sayısı:",
       labelDisplayedRows: ({ from, to, count }) =>
         `${count} kayıttan ${from} - ${to}`,
     },
@@ -17,7 +16,7 @@ export const MuiTable = (props) => {
   return (
     <Box>
       <DataGrid
-        rows={rows}
+        rows={rows ?? []}
         columns={columns}
         sx={{ ...styles }}
         pagination
@@ -28,6 +27,8 @@ export const MuiTable = (props) => {
         disableSelectionOnClick
         componentsProps={componentProps}
         disableVirtualization={true}
+        loading={isLoading}
+        localeText={trTR.components.MuiDataGrid.defaultProps.localeText}
       />
     </Box>
   );

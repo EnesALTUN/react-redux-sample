@@ -51,6 +51,11 @@ const MobilMenu = (props) => {
             </Link>
           </MenuItem>
           <MenuItem onClick={closeNavMenuHandler}>
+            <Link to="/posts-api" className="mobile menu-link">
+              Posts-Api
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={closeNavMenuHandler}>
             <Link to="/post/create" className="mobile menu-link">
               Post Create
             </Link>
