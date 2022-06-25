@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { sub } from "date-fns";
 
-const initialState = [
+const initialData = [
   {
     id: 1,
     title: "Learning Redux Toolkit",
@@ -16,12 +16,17 @@ const initialState = [
   },
 ];
 
+const initialState = localStorage.getItem("posts")
+  ? JSON.parse(localStorage.getItem("posts"))
+  : initialData;
+
 const postSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
     addPost(state, action) {
       state.push({ ...action.payload, createdDate: new Date().toISOString() });
+      localStorage.setItem("posts", JSON.stringify(state));
     },
   },
 });
