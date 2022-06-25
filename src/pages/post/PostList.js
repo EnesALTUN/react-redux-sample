@@ -46,7 +46,7 @@ const PostList = () => {
     <MuiTable
       columns={postColumns}
       rows={orderedPosts}
-      styles={{ width: "90%", margin: "10px auto" }}
+      styles={{ width: "90%", m: "10px auto" }}
     />
   );
 };

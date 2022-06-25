@@ -11,6 +11,10 @@ import TimeAgoField from "./fields/TimeAgoField";
 import RefField from "./fields/RefField";
 import AutoCompleteDropdown from "./inputs/AutoCompleteDropdown";
 
+import ListViewButton from "./buttons/ListViewButton";
+
+import Comment from "./post/Comment";
+
 export {
   Layout,
   Header,
@@ -22,4 +26,6 @@ export {
   TimeAgoField,
   RefField,
   AutoCompleteDropdown,
+  ListViewButton,
+  Comment,
 };

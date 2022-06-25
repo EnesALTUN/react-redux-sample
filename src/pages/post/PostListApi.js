@@ -1,4 +1,4 @@
-import { MuiTable, RefField } from "../../components/index";
+import { MuiTable, RefField, ListViewButton } from "../../components/index";
 import { useGetListQuery } from "../../features/api/Api";
 
 const PostListApi = () => {
@@ -26,13 +26,20 @@ const PostListApi = () => {
       flex: 1,
       renderCell: ({ value }) => <RefField resource="users" value={value} />,
     },
+    {
+      field: "actions",
+      type: "actions",
+      headerName: "",
+      width: 50,
+      renderCell: (params) => <ListViewButton path="post" id={params.id} />,
+    },
   ];
 
   return (
     <MuiTable
       columns={postColumns}
       rows={posts}
-      styles={{ width: "90%", margin: "10px auto" }}
+      styles={{ width: "90%", m: "10px auto" }}
       isLoading={isLoading}
     />
   );
