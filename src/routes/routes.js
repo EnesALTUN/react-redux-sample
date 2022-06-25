@@ -1,5 +1,11 @@
 import { Layout } from "../components";
-import { Counter, PostCreate, PostList, PostListApi } from "../pages";
+import {
+  Counter,
+  PostCreate,
+  PostList,
+  PostListApi,
+  SinglePost,
+} from "../pages";
 
 const routes = [
   {
@@ -25,6 +31,11 @@ const routes = [
       {
         path: "/post/create",
         element: PostCreate,
+        exact: false,
+      },
+      {
+        path: "/post/:postId",
+        element: SinglePost,
         exact: false,
       },
     ],

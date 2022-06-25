@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
@@ -22,21 +22,17 @@ const PostCreate = () => {
   };
 
   return (
-    <Box
-      style={{
-        margin: "auto",
-        width: "600px",
-        marginTop: "2rem",
-      }}
-    >
-      <Formik
-        initialValues={postCreateInitials}
-        validationSchema={postCreateValidationSchema}
-        onSubmit={submitHandler}
-      >
-        <PostCreateForm />
-      </Formik>
-    </Box>
+    <Grid container spacing={3} sx={{ pt: 1 }}>
+      <Grid item xs={8} md={6} lg={3}>
+        <Formik
+          initialValues={postCreateInitials}
+          validationSchema={postCreateValidationSchema}
+          onSubmit={submitHandler}
+        >
+          <PostCreateForm />
+        </Formik>
+      </Grid>
+    </Grid>
   );
 };
 
