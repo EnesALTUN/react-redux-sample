@@ -10,32 +10,32 @@ import {
 const routes = [
   {
     path: "/",
-    element: Layout,
+    element: <Layout />,
     exact: false,
-    childrens: [
+    children: [
       {
         path: "/counter",
-        element: Counter,
+        element: <Counter />,
         exact: false,
       },
       {
         path: "/posts",
-        element: PostList,
+        element: <PostList />,
         exact: false,
       },
       {
         path: "/posts-api",
-        element: PostListApi,
+        element: <PostListApi />,
         exact: false,
       },
       {
         path: "/post/create",
-        element: PostCreate,
+        element: <PostCreate />,
         exact: false,
       },
       {
         path: "/post/:postId",
-        element: SinglePost,
+        element: <SinglePost />,
         exact: false,
       },
     ],
